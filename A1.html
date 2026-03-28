@@ -8,7 +8,7 @@
 
 <meta name="author" content="Xuanning Zhang">
 
-<title>A1</title>
+<title>ETC5513 Assignment 1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -49,7 +49,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">A1</h1>
+<h1 class="title">ETC5513 Assignment 1</h1>
 </div>
 
 
@@ -74,7 +74,21 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="research-project-and-reason" class="level1">
 <h1>Research project and reason</h1>
-<p>this report analyse the relationship of whether higher marketing spend will achieve higher purchase amount by clients. the analytics of the relationship between two could provide the department a better reference to improve marketing strategy.</p>
+<p>this report analyse the relationship of whether higher marketing spend will achieve higher purchase amount by clients. the analysis of the relationship between two could provide the department a better reference to improve marketing strategy.</p>
+</section>
+<section id="data-analysis" class="level1">
+<h1>Data analysis</h1>
+<p>this report will focus on whether there has linear relationship between marketing spend and purchase amount. It represent whether the increase of market spend will increase customers’ purchase amount. the analysis will also evaluate whether the relationship is statistically significant.</p>
+</section>
+<section id="dataset-introduction" class="level1">
+<h1>Dataset introduction</h1>
+<section id="data-descreption" class="level2">
+<h2 class="anchored" data-anchor-id="data-descreption">Data descreption</h2>
+<p>the raw data provided basic information of personalised marketing campaign in last quarter which mainly focus on how much is spend on marketing and purchase amount of each customer. each row represent each customer including the varible of ID, marketing spend and purchase amount, customer type and some additional information.</p>
+</section>
+<section id="cleaning-process" class="level2">
+<h2 class="anchored" data-anchor-id="cleaning-process">Cleaning process</h2>
+<p>the processing of data is deleted the row which has NA with purchase amount, these data most have high marketing spend and the note could not proof that they can be replaced by “0”, thus required to be removed. NA value in the column of signup date and note will not inculded in the calculation thus do not need more process.</p>
 <div class="cell">
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
@@ -87,6 +101,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+</section>
 </section>
 
 </main>

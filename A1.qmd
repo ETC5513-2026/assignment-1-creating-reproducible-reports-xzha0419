@@ -1,5 +1,5 @@
 ---
-title: "A1"
+title: "ETC5513 Assignment 1"
 format: 
     html:
         theme: journal
@@ -7,9 +7,19 @@ format:
     pdf: default
 author: Xuanning Zhang
 ---
+# Research project and reason
+this report analyse the relationship of whether higher marketing spend will achieve higher purchase amount by clients. the analysis of the relationship between two could provide the department a better reference to improve marketing strategy.
 
+# Data analysis
+this report will focus on whether there has linear relationship between marketing spend and purchase amount. It represent whether the increase of market spend will increase customers' purchase amount. the analysis will also evaluate whether the relationship is statistically significant.
 
+# Dataset introduction
 
+## Data descreption
+the raw data provided basic information of personalised marketing campaign in last quarter which mainly focus on how much is spend on marketing and purchase amount of each customer. each row represent each customer including the varible of ID, marketing spend and purchase amount, customer type and some additional information.
+
+## Cleaning process
+the processing of data is deleted the row which has NA with purchase amount, these data most have high marketing spend and the note could not proof that they can be replaced by "0", thus required to be removed. NA value in the column of signup date and note will not inculded in the calculation thus do not need more process.
 ```{r, message=FALSE}
 #| include: false
 
