@@ -3,3 +3,28 @@ title: "A1"
 format: html
 editor: visual
 ---
+
+
+# active the R packages
+```{r, message=FALSE}
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+```
+
+# read the raw data file
+assign the data in csv to raw_data
+```{r}
+raw_data <- read_csv("data/33789541_Xuanning Zhang.csv", col_names = TRUE)
+tidied_data <-  raw_data |> na.omit(marketing_spend) 
+lm(purchase_amount~marketing_spend, data=tidied_data) |> 
+summary()
+ggplot(tidied_data, aes(x=marketing_spend, y=purchase_amount)) +
+    geom_point()+
+    geom_smooth(method = "lm", se=TRUE)+
+    labs(
+        Title="Relationship between marketing spend and purchase amount",
+        x= "Marketing Spend",
+        y= " Purchase Amount"
+    )
+```
