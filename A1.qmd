@@ -1,28 +1,16 @@
 ---
 title: "ETC5513 Assignment 1"
 format: 
+    pdf:
+        toc: true
     html:
         theme: journal
-        tocL: true
-    pdf: default
+        toc: true
 author: Xuanning Zhang
 ---
-# Research project and reason
-this report analyse the relationship of whether higher marketing spend will achieve higher purchase amount by clients. the analysis of the relationship between two could provide the department a better reference to improve marketing strategy.
-
-# Data analysis
-this report will focus on whether there has linear relationship between marketing spend and purchase amount. It represent whether the increase of market spend will increase customers' purchase amount. the analysis will also evaluate whether the relationship is statistically significant.
-
-# Dataset introduction
-
-## Data descreption
-the raw data provided basic information of personalised marketing campaign in last quarter which mainly focus on how much is spend on marketing and purchase amount of each customer. each row represent each customer including the varible of ID, marketing spend and purchase amount, customer type and some additional information.
-
-## Cleaning process
-the processing of data is deleted the row which has NA with purchase amount, these data most have high marketing spend and the note could not proof that they can be replaced by "0", thus required to be removed. NA value in the column of signup date and note will not inculded in the calculation thus do not need more process.
 ```{r, message=FALSE}
 #| include: false
-
+library(knitr)
 library(dplyr)
 library(tidyverse)
 library(ggplot2)
@@ -35,19 +23,83 @@ raw_data <- read_csv("data/33789541_Xuanning Zhang.csv", col_names = TRUE)
 tidied_data <-  raw_data |> 
     filter(!is.na(purchase_amount))
 
-lm(purchase_amount~marketing_spend, data=tidied_data) |> 
-summary()
+regression <- lm(purchase_amount~marketing_spend, data=tidied_data)
+
 ```
 
+# Research project and reason
+
+this report analyse the relationship of whether higher marketing spend will achieve higher purchase amount by clients. the analysis of the relationship between two could provide the department a better reference to improve marketing strategy.
+
+# Data analysis
+this report will focus on whether there has linear relationship between marketing spend and purchase amount. It represent whether the increase of market spend will increase customers' purchase amount. the analysis will also evaluate whether the relationship is statistically significant.
+
+# Dataset introduction
+
+## Data descreption
+the raw data provided basic information of personalised marketing campaign in last quarter which mainly focus on how much is spend on marketing and purchase amount of each customer. each row represent each customer including the varible of ID, marketing spend and purchase amount, customer type and some additional information.
+
+## Cleaning process
+the processing of data is deleted the row which has NA with purchase amount, these data most have high marketing spend and the note could not proof that they can be replaced by "0", thus required to be removed. NA value in the column of signup date and note will not inculded in the calculation thus do not need more process.
+
+# Data details
+in the tidied data, there including `r nrow(tidied_data)` of observations and `r ncol(tidied_data)` of variables, the summary of marketing spend and purchase amount is in @tbl-summary.
 
 ```{r}
 #| echo: false
+#| label: tbl-summary
+#| tbl-cap: Summary of marketing spend and purchase amount
+summary_table <- data.frame(
+        variable= c("marketing spend", "pruchase amount"),
+        mediam= c(median(tidied_data$marketing_spend), median(tidied_data$purchase_amount)),
+        mean= c(mean(tidied_data$marketing_spend), mean(tidied_data$purchase_amount)),
+        max= c(max(tidied_data$marketing_spend), max(tidied_data$purchase_amount)),
+        min= c(min(tidied_data$marketing_spend), min(tidied_data$purchase_amount))
+        )
+    knitr::kable(summary_table)
+```
+
+
+The distribution plot @fig-distribution shows that most observations are in the lower to middle range, indicating that the purchase amount is generally low to moderate.
+
+```{r}
+#| echo: false
+#| label: fig-distribution
+#| tbl-cap: Distribution of purchase amount
+#| out-width: "70%"
+ggplot(tidied_data, aes(x = purchase_amount)) +
+  geom_histogram(binwidth = 10, fill="steelblue") +
+  labs(
+    title="Distribution of purchase amount",
+    x = "Purchase Amount",
+    y = "Count"
+  )
+```
+```{r}
+#| echo: false
+#| out-width: "70%"
+#| message: false
+#| label: fig-regression
+#| fig-cap: Relationship between marketing spend and purchase amount
 ggplot(tidied_data, aes(x=marketing_spend, y=purchase_amount)) +
     geom_point()+
     geom_smooth(method = "lm", se=TRUE)+
     labs(
-        title="Relationship between marketing spend and purchase amount",
+        title= "Relationship between marketing spend and purchase amount",
         x= "Marketing Spend",
         y= " Purchase Amount"
     )
+```
+
+```{r}
+#| echo: false
+#| out-width: "70%"
+#| label: fig-boxplot
+#| fig-cap: Purchase amount in different customer groups
+ggplot(tidied_data, aes(x= segment, y=purchase_amount, fill=segment))+
+    labs(
+        title="Purchase amount in different customer groups"
+    )+
+    geom_boxplot()+
+    theme_minimal()
 ```
