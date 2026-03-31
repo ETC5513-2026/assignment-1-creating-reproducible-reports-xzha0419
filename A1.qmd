@@ -1,10 +1,10 @@
 ---
 title: "ETC5513 Assignment 1"
-format: 
-    pdf:
-        toc: true
+format:
     html:
         theme: journal
+        toc: true
+    pdf:
         toc: true
 author: Xuanning Zhang
 ---
@@ -27,6 +27,8 @@ regression <- lm(purchase_amount~marketing_spend, data=tidied_data)
 
 ```
 
+
+\newpage
 # Research project and reason
 
 this report analyse the relationship of whether higher marketing spend will achieve higher purchase amount by clients. the analysis of the relationship between two could provide the department a better reference to improve marketing strategy.
@@ -43,7 +45,7 @@ the raw data provided basic information of personalised marketing campaign in la
 the processing of data is deleted the row which has NA with purchase amount, these data most have high marketing spend and the note could not proof that they can be replaced by "0", thus required to be removed. NA value in the column of signup date and note will not inculded in the calculation thus do not need more process.
 
 # Data details
-in the tidied data, there including `r nrow(tidied_data)` of observations and `r ncol(tidied_data)` of variables, the summary of marketing spend and purchase amount is in @tbl-summary.
+in the tidied data, there including `r nrow(tidied_data)` of observations and `r ncol(tidied_data)` of variables, the summary of marketing spend and purchase amount is in @tbl-summary. the colunm customer_id is the unique id of each customer, marketing_spend and purchase_amount is how much money has been used for marketing of each customer and how much they have purchased after marketing, visits means how many time they have visited the online shop and segment is the type of customer.
 
 ```{r}
 #| echo: false
@@ -75,6 +77,24 @@ ggplot(tidied_data, aes(x = purchase_amount)) +
     y = "Count"
   )
 ```
+
+# Result
+the box plot @fig-boxplot show the distribution of purchase amount of different customer groups and point out Enterprise customer have the highest median pruchase amount. The distributions for Consumer and SMB appear relatively similar, although their median values are lower compared to Enterprise.
+```{r}
+#| echo: false
+#| out-width: "70%"
+#| label: fig-boxplot
+#| fig-cap: Purchase amount in different customer groups
+ggplot(tidied_data, aes(x= segment, y=purchase_amount, fill=segment))+
+    labs(
+        title="Purchase amount in different customer groups"
+    )+
+    geom_boxplot()+
+    theme_minimal()
+```
+
+the regression model @fig-regression show the positive relationship between marketing spend and purchase amount, which means higher marketing spend will create higher customer purchase amount. the R^2 of the regression model is `r round(summary(regression)$r.squared, 3)` means `r round(summary(regression)$r.squared*100,3)`% of change in purchase amount could be explained by the change of marketing spend.
+overall, there has relationship between marketing spend and customer purchase amount. furthermore, there have difference in distribution of purchase price with different customer groups and marketing spend have positive relationship with purchase amount which supported by visualization result.
 ```{r}
 #| echo: false
 #| out-width: "70%"
@@ -91,15 +111,3 @@ ggplot(tidied_data, aes(x=marketing_spend, y=purchase_amount)) +
     )
 ```
 
-```{r}
-#| echo: false
-#| out-width: "70%"
-#| label: fig-boxplot
-#| fig-cap: Purchase amount in different customer groups
-ggplot(tidied_data, aes(x= segment, y=purchase_amount, fill=segment))+
-    labs(
-        title="Purchase amount in different customer groups"
-    )+
-    geom_boxplot()+
-    theme_minimal()
-```

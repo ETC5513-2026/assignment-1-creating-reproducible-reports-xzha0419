@@ -56,6 +56,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#cleaning-process" id="toc-cleaning-process" class="nav-link" data-scroll-target="#cleaning-process">Cleaning process</a></li>
   </ul></li>
   <li><a href="#data-details" id="toc-data-details" class="nav-link" data-scroll-target="#data-details">Data details</a></li>
+  <li><a href="#result" id="toc-result" class="nav-link" data-scroll-target="#result">Result</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="A1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </div>
@@ -86,6 +87,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div style="page-break-after: always;"></div>
 <section id="research-project-and-reason" class="level1">
 <h1>Research project and reason</h1>
 <p>this report analyse the relationship of whether higher marketing spend will achieve higher purchase amount by clients. the analysis of the relationship between two could provide the department a better reference to improve marketing strategy.</p>
@@ -107,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="data-details" class="level1">
 <h1>Data details</h1>
-<p>in the tidied data, there including 132 of observations and 7 of variables, the summary of marketing spend and purchase amount is in <a href="#tbl-summary" class="quarto-xref">Table&nbsp;1</a>.</p>
+<p>in the tidied data, there including 132 of observations and 7 of variables, the summary of marketing spend and purchase amount is in <a href="#tbl-summary" class="quarto-xref">Table&nbsp;1</a>. the colunm customer_id is the unique id of each customer, marketing_spend and purchase_amount is how much money has been used for marketing of each customer and how much they have purchased after marketing, visits means how many time they have visited the online shop and segment is the type of customer.</p>
 <div class="cell">
 <div id="tbl-summary" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -151,10 +153,10 @@ Table&nbsp;1: Summary of marketing spend and purchase amount
 <p>The distribution plot <a href="#fig-distribution" class="quarto-xref">Figure&nbsp;1</a> shows that most observations are in the lower to middle range, indicating that the purchase amount is generally low to moderate.</p>
 <div class="cell" data-tbl-cap="Distribution of purchase amount">
 <div class="cell-output-display">
-<div id="fig-distribution" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<div id="fig-distribution" class="quarto-float quarto-figure quarto-figure-center anchored" width="70%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="A1_files/figure-html/fig-distribution-1.png" id="fig-distribution" class="img-fluid figure-img" width="672">
+<img src="A1_files/figure-html/fig-distribution-1.png" id="fig-distribution" class="img-fluid figure-img" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1
@@ -163,14 +165,35 @@ Figure&nbsp;1
 </div>
 </div>
 </div>
+</section>
+<section id="result" class="level1">
+<h1>Result</h1>
+<p>the box plot <a href="#fig-boxplot" class="quarto-xref">Figure&nbsp;2</a> show the distribution of purchase amount of different customer groups and point out Enterprise customer have the highest median pruchase amount. The distributions for Consumer and SMB appear relatively similar, although their median values are lower compared to Enterprise.</p>
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="A1_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-boxplot" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-boxplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="A1_files/figure-html/fig-boxplot-1.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-boxplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Purchase amount in different customer groups
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>the regression model <a href="#fig-regression" class="quarto-xref">Figure&nbsp;3</a> show the positive relationship between marketing spend and purchase amount, which means higher marketing spend will create higher customer purchase amount. the R^2 of the regression model is 0.681 means 68.113% of change in purchase amount could be explained by the change of marketing spend. overall, there has relationship between marketing spend and customer purchase amount. furthermore, there have difference in distribution of purchase price with different customer groups and marketing spend have positive relationship with purchase amount which supported by visualization result.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-regression" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regression-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="A1_files/figure-html/fig-regression-1.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regression-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Relationship between marketing spend and purchase amount
+</figcaption>
 </figure>
 </div>
 </div>
