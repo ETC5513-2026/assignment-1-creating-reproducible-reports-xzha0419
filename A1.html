@@ -90,26 +90,26 @@ ul.task-list li input[type="checkbox"] {
 <div style="page-break-after: always;"></div>
 <section id="research-project-and-reason" class="level1">
 <h1>Research project and reason</h1>
-<p>this report analyse the relationship of whether higher marketing spend will achieve higher purchase amount by clients. the analysis of the relationship between two could provide the department a better reference to improve marketing strategy.</p>
+<p>This report analyse the relationship of whether higher marketing spend will achieve higher purchase amount by clients. the analysis of the relationship between two could provide the department a better reference to improve marketing strategy.</p>
 </section>
 <section id="data-analysis" class="level1">
 <h1>Data analysis</h1>
-<p>this report will focus on whether there has linear relationship between marketing spend and purchase amount. It represent whether the increase of market spend will increase customers’ purchase amount. the analysis will also evaluate whether the relationship is statistically significant.</p>
+<p>This report will focus on whether there has linear relationship between marketing spend and purchase amount. It represent whether the increase of market spend will increase customers’ purchase amount. the analysis will also evaluate whether the relationship is statistically significant.</p>
 </section>
 <section id="dataset-introduction" class="level1">
 <h1>Dataset introduction</h1>
 <section id="data-descreption" class="level2">
 <h2 class="anchored" data-anchor-id="data-descreption">Data descreption</h2>
-<p>the raw data provided basic information of personalised marketing campaign in last quarter which mainly focus on how much is spend on marketing and purchase amount of each customer. each row represent each customer including the varible of ID, marketing spend and purchase amount, customer type and some additional information.</p>
+<p>The raw data provided basic information of personalised marketing campaign in last quarter which mainly focus on how much is spend on marketing and purchase amount of each customer. each row represent each customer including the varible of ID, marketing spend and purchase amount, customer type and some additional information.</p>
 </section>
 <section id="cleaning-process" class="level2">
 <h2 class="anchored" data-anchor-id="cleaning-process">Cleaning process</h2>
-<p>the processing of data is deleted the row which has NA with purchase amount, these data most have high marketing spend and the note could not proof that they can be replaced by “0”, thus required to be removed. NA value in the column of signup date and note will not inculded in the calculation thus do not need more process.</p>
+<p>The processing of data is deleted the row which has NA with purchase amount, these data most have high marketing spend and the note could not proof that they can be replaced by “0”, thus required to be removed. NA value in the column of signup date and note will not inculded in the calculation thus do not need more process.</p>
 </section>
 </section>
 <section id="data-details" class="level1">
 <h1>Data details</h1>
-<p>in the tidied data, there including 132 of observations and 7 of variables, the summary of marketing spend and purchase amount is in <a href="#tbl-summary" class="quarto-xref">Table&nbsp;1</a>. the colunm customer_id is the unique id of each customer, marketing_spend and purchase_amount is how much money has been used for marketing of each customer and how much they have purchased after marketing, visits means how many time they have visited the online shop and segment is the type of customer.</p>
+<p>In the tidied data, there including 132 of observations and 7 of variables, the summary of marketing spend and purchase amount is in <a href="#tbl-summary" class="quarto-xref">Table&nbsp;1</a>. the colunm customer_id is the unique id of each customer, marketing_spend and purchase_amount is how much money has been used for marketing of each customer and how much they have purchased after marketing, visits means how many time they have visited the online shop and segment is the type of customer.</p>
 <div class="cell">
 <div id="tbl-summary" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -168,7 +168,7 @@ Figure&nbsp;1
 </section>
 <section id="result" class="level1">
 <h1>Result</h1>
-<p>the box plot <a href="#fig-boxplot" class="quarto-xref">Figure&nbsp;2</a> show the distribution of purchase amount of different customer groups and point out Enterprise customer have the highest median pruchase amount. The distributions for Consumer and SMB appear relatively similar, although their median values are lower compared to Enterprise.</p>
+<p>The box plot <a href="#fig-boxplot" class="quarto-xref">Figure&nbsp;2</a> show the distribution of purchase amount of different customer groups and point out Enterprise customer have the highest median pruchase amount. The distributions for Consumer and SMB appear relatively similar, although their median values are lower compared to Enterprise.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-boxplot" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -183,7 +183,7 @@ Figure&nbsp;2: Purchase amount in different customer groups
 </div>
 </div>
 </div>
-<p>the regression model <a href="#fig-regression" class="quarto-xref">Figure&nbsp;3</a> show the positive relationship between marketing spend and purchase amount, which means higher marketing spend will create higher customer purchase amount. the R^2 of the regression model is 0.681 means 68.113% of change in purchase amount could be explained by the change of marketing spend. overall, there has relationship between marketing spend and customer purchase amount. furthermore, there have difference in distribution of purchase price with different customer groups and marketing spend have positive relationship with purchase amount which supported by visualization result.</p>
+<p>The regression model <a href="#fig-regression" class="quarto-xref">Figure&nbsp;3</a> show the positive relationship between marketing spend and purchase amount, which means higher marketing spend will create higher customer purchase amount. the R^2 of the regression model is 0.681 means 68.113% of change in purchase amount could be explained by the change of marketing spend. overall, there has relationship between marketing spend and customer purchase amount. furthermore, there have difference in distribution of purchase price with different customer groups and marketing spend have positive relationship with purchase amount which supported by visualization result.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-regression" class="quarto-float quarto-figure quarto-figure-center anchored">
